@@ -18,11 +18,24 @@ import javax.ws.rs.core.Response;
 import br.com.iblueconsulting.clientes.model.Cliente;
 import br.com.iblueconsulting.clientes.service.IClienteService;
 
-@Path("clientes")
+/**
+* Classe de CRUD da api que trata dos Clientes
+* 
+* 
+* @author Byanca
+* 
+*/
+
+@Path("api")
 public class ClienteController {
-	 @Inject
+		@Inject
 	    private IClienteService clienteService;
 
+		/** 
+		 * <p> Metodo GET que retona a lista de clientes sem filtro</p>
+		 * @return Lista de Clientes ou Not Found em caso de vazio.
+		 * @since 1.0
+		 */
 	    @GET
 	    @Produces(MediaType.APPLICATION_JSON)
 	    public Response getClientes() {
@@ -36,10 +49,15 @@ public class ClienteController {
 	        }
 	    }
 
+		/** 
+		 * <p> Metodo GET que retona o clientes filtrado pelo id</p>
+		 * @return Cliente filtrado pelo Id ou Not Found em caso de vazio.
+		 * @since 1.0
+		 */
 	    @Path("/{id}")
 	    @GET
 	    @Produces(MediaType.APPLICATION_JSON)
-	    public Response findCity(@PathParam("id") Long id) {
+	    public Response findClienteById(@PathParam("id") Long id) {
 
 	    	Cliente c = clienteService.find(id);
 
@@ -49,10 +67,34 @@ public class ClienteController {
 	            return Response.status(Response.Status.NOT_FOUND).build();
 	        }
 	    }
+	    
+	    /**
+		 * <p> Metodo GET que retona o clientes filtrado pelo email.</p>
+		 * @return Cliente filtrado pelo email ou Not Found em caso de vazio.
+		 * @since 1.0
+		 */
+	    @Path("email/{email}")
+	    @GET
+	    @Produces(MediaType.APPLICATION_JSON)
+	    public Response findClienteByEmail(@PathParam("email") String email) {
 
+	    	Cliente c = clienteService.find(email);
+
+	        if (c.getId() != null) {
+	            return Response.ok(c).build();
+	        } else {
+	            return Response.status(Response.Status.NOT_FOUND).build();
+	        }
+	    }
+	    
+	    /**
+		 * <p> Metodo Post que salva o cliente.</p>
+		 * @return Salva o cliente ou Not Found em caso de erro.
+		 * @since 1.0
+		 */
 	    @POST
 	    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	    public Response saveCity(@FormParam("nome") String nome,
+	    public Response saveCliente(@FormParam("nome") String nome,
 	            @FormParam("cpf") String cpf) {
 
 	    	Cliente c = new Cliente();
@@ -68,6 +110,11 @@ public class ClienteController {
 	        }        
 	    }
 
+	    /**
+		 * <p> Metodo Put que atualiza o cliente.</p>
+		 * @return Atualiza o cliente ou Not Found em caso de erro.
+		 * @since 1.0
+		 */
 	    @Path("/{id}")
 	    @PUT
 	    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -87,7 +134,12 @@ public class ClienteController {
 	            return Response.notModified().build();
 	        }           
 	    }
-
+	    
+	    /**
+		 * <p> Metodo DELETE que atualiza o cliente.</p>
+		 * @return Deleta o cliente ou Not Found em caso de erro.
+		 * @since 1.0
+		 */
 	    @Path("/{id}")
 	    @DELETE
 	    @Produces(MediaType.APPLICATION_JSON)

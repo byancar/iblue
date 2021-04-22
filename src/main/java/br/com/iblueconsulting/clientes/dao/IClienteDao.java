@@ -10,8 +10,11 @@ public interface IClienteDao {
     public boolean save(Cliente c);
 
     public Cliente find(Long id);
+    public Cliente find(String email);
 
     public boolean update(Cliente c, Long id);
 
     public boolean delete(Long id);
+
+	
 }

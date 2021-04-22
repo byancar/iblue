@@ -26,6 +26,11 @@ public class ClienteService implements IClienteService {
     public Cliente find(Long id) {  
         return clienteDao.find(id);
     }
+    
+	@Override
+	public Cliente find(String email) {
+		 return clienteDao.find(email);
+	}
 
     @Override
     public boolean update(Cliente c, Long id) {
@@ -36,4 +41,6 @@ public class ClienteService implements IClienteService {
     public boolean delete(Long id) {
         return clienteDao.delete(id);
     }
+
+
 }

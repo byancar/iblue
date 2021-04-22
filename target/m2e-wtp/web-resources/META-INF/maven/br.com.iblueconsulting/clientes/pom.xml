@@ -74,7 +74,7 @@
             <scope>provided</scope>
         </dependency>  
         
-        <!-- Adicionar documentação automatizada de Swagger -->
+        <!-- Adicionar documentação automatizada de Swagger - Não funcionou com o RESTeasy
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
@@ -85,7 +85,7 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.6.1</version>
 		</dependency>     
-
+ -->
     </dependencies>
     
     <build>

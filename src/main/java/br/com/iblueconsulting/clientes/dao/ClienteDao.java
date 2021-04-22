@@ -137,5 +137,11 @@ public class ClienteDao implements IClienteDao {
 
         return ret;
     }
+
+	@Override
+	public Cliente find(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }

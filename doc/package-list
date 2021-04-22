@@ -1,0 +1,5 @@
+br.com.iblueconsulting.clientes.config
+br.com.iblueconsulting.clientes.controller
+br.com.iblueconsulting.clientes.dao
+br.com.iblueconsulting.clientes.model
+br.com.iblueconsulting.clientes.service

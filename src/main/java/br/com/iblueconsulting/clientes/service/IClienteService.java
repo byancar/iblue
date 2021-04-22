@@ -15,4 +15,6 @@ public interface IClienteService {
     public boolean update(Cliente c, Long id);
 
     public boolean delete(Long id);
+
+	public Cliente find(String email);
 }

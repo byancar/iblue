@@ -1,10 +1,1 @@
-INSERT INTO cities(name, population) VALUES('Bratislava', 432000);
-INSERT INTO cities(name, population) VALUES('Budapest', 1759000);
-INSERT INTO cities(name, population) VALUES('Prague', 1280000);
-INSERT INTO cities(name, population) VALUES('Warsaw', 1748000);
-INSERT INTO cities(name, population) VALUES('Los Angeles', 3971000);
-INSERT INTO cities(name, population) VALUES('New York', 8550000);
-INSERT INTO cities(name, population) VALUES('Edinburgh', 464000);
-INSERT INTO cities(name, population) VALUES('Berlin', 3671000);
-
-INSERT INTO clientes(nome, cpf) VALUES('João Pedro', '123456987');
+INSERT INTO clientes(nome,cpf,email,cep,tipo_logradouro,lougradouro,numero,complemento,bairro,cidade,estado) VALUES ('nome','cpf','email','cep','tipo','lougradouro',1,'complemento','bairro','cidade','estado');
